@@ -6,3 +6,8 @@ struct Node {
     Node* pNext;
 };
 
+void displayMenu(string szMenuArr, int iLength) {
+    for (int i = 0; i < iLength; i++)
+        cout << i+1 << ". " << szMenuArr[i];
+}
+
