@@ -1,4 +1,7 @@
 // Class and function delcarations for both stack implementations
+#ifndef STACK_H
+#define STACK_H
+
 
 class stackArr {
     public:
@@ -12,3 +15,5 @@ class stackPtr {
     private:
 
 };
+
+#endif
