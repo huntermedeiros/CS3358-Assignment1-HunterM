@@ -3,12 +3,13 @@
 
 // Base inclusions
 #include <iostream>
-#include <string>
 
 // Basic node structure for ADTs
 struct Node {
     int iVal;
     Node* pNext = nullptr;
 };
+
+void displayMenu(std::string szMenu[], int iLength);
 
 #endif
