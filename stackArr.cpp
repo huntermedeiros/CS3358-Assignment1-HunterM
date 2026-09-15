@@ -1,3 +1,4 @@
+#include "utils.h"
 #include "stack.h"
 
 // All code for the array based Stack
