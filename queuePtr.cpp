@@ -28,6 +28,6 @@
             return false;
         } 
 
-        int queuePtr::currentSize() {
-            return 0;
+        int queuePtr::getSize() {
+            return iSize;
         }

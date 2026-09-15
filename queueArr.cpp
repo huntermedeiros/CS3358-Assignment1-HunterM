@@ -1,35 +1,40 @@
 #include "utils.h"
 #include "queue.h"
 
-        queueArr::queueArr(int iSize) {
-            iQueueArr = new int[iSize];
+        queueArr::queueArr(int iCapacity) { // Create new queueArr given capacity
+            iQueueArr = new int[iCapacity];
         }
-        queueArr::~queueArr() {
-            delete iQueueArr; // Delete queue array and set to null
+        queueArr::~queueArr() { // Delete queue array and set to null
+            delete iQueueArr; 
             iQueueArr = nullptr;
         }
 
         void queueArr::enqueue(int iNewVal) {
             if (isFull()) { // If queue is full, print error and return
-                std::cout << "Queue full. Value not queued.\n";
+                std::cout << "Queue full. Value not enqueued.\n";
             }
             else {
-                iQueueArr[iSize-1] = iNewVal;
+                iBack = (iFront + iSize) % iCapacity; // The back of the queueu is the mod of the front + size by the capacity
+                iQueueArr[iBack] = iNewVal; // Insert value at back of queue
+                iSize++;
             }
         }
 
 
         void queueArr::dequeue() {
-            if (isEmpty()) { // If queue is empty, print error and return
+            if (isEmpty()) { // If queue is empty, print error
                 std::cout << "Queue empty. Value not dequeued.\n";
             }
             else {
-
+                iFront--; // Decrement iFront to effectivaly remove element from list
             }
         }
 
         void queueArr::peek() {
-
+            if (isEmpty()) // If queue is empty, print error
+                std::cout << "Queue empty. No value to peek.\n";
+            else
+                std::cout << "Front Value: " << iQueueArr[iFront] << std::endl;
         }
 
         bool queueArr::isEmpty() {
@@ -40,9 +45,13 @@
         }
 
         bool queueArr::isFull() {
-            return false;
+            if ((iSize + 1) % iCapacity == 0) // If taking the mod of the current size+1 to the capacity is 0 then the array is full
+                return true;
+            else
+                return false;
+            
         } 
 
-        int queueArr::currentSize() {
-            return 0;
+        int queueArr::getSize() { // Returns size
+            return iSize;
         }

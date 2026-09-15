@@ -8,12 +8,13 @@
 class queueArr {
     private:
         int iSize;
+        int iCapacity;
         int iFront = 0;
         int iBack = 0;
         int* iQueueArr = nullptr;
 
     public:
-        queueArr(int iSize); // Constructor providing size
+        queueArr(int iCapacity); // Constructor providing size
         ~queueArr(); // Destructor
 
         void enqueue(int iNewVal); // Enqueue element
@@ -21,7 +22,7 @@ class queueArr {
         void peek(); // Print front value
         bool isEmpty(); // Returns bool based on if queue is empty
         bool isFull(); // Returns bool based on if queue is full
-        int currentSize(); // Returns size of Queue
+        int getSize(); // Returns size of Queue
 };
 
 // Implementation of a Queue using pointers
@@ -39,7 +40,7 @@ class queuePtr {
         void peek(); // Print front value
         bool isEmpty(); // Returns bool based on if queue is empty
         bool isFull(); // Returns bool based on if queue is full
-        int currentSize(); // Returns size of Queue
+        int getSize(); // Returns size of Queue
 };
 
 #endif
