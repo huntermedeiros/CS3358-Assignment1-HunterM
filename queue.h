@@ -7,18 +7,16 @@
 // Implementation of a Queue using an array
 class queueArr {
     private:
-        int iSize = 1; // Smallest default Size
+        int iSize;
         int iFront = 0;
         int iBack = 0;
         int* iQueueArr = nullptr;
 
     public:
-        queueArr(); // Default constructor
+        queueArr(int iSize); // Constructor providing size
         ~queueArr(); // Destructor
 
-        queueArr(int iSize); // Overloaded constructor providing size
-
-        void enqueue(); // Enqueue element
+        void enqueue(int iNewVal); // Enqueue element
         void dequeue(); // Dequeue element
         void peek(); // Print front value
         bool isEmpty(); // Returns bool based on if queue is empty
@@ -36,7 +34,7 @@ class queuePtr {
         queuePtr();
         ~queuePtr();
 
-        void enqueue(); // Enqueue element
+        void enqueue(int iNewVal); // Enqueue element
         void dequeue(); // Dequeue element
         void peek(); // Print front value
         bool isEmpty(); // Returns bool based on if queue is empty

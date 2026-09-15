@@ -8,7 +8,7 @@
 
         }
 
-        void queuePtr::enqueue() {
+        void queuePtr::enqueue(int iNewVal) {
 
         }
 

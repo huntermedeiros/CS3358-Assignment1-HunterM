@@ -7,15 +7,13 @@
 // Implementation of a Stack using an array
 class stackArr {
     private:
-        int iSize = 1; // Smallest default Size
+        int iSize;
         int iTop = -1; // Default empty value
         int* iStackArr = nullptr;
 
     public:
-        stackArr(); // Default constructor
+        stackArr(int iSize); // Constructor providing size
         ~stackArr(); // Destructor
-
-        stackArr(int iSize); // Overloaded constructor providing size
 
         void push(int iNewValue); // Push element to top of stack
         void pop(); // Pop element at top of stack
