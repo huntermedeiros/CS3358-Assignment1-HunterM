@@ -3,6 +3,8 @@
 
 // Base inclusions
 #include <iostream>
+#include "stack.h"
+#include "queue.h"
 
 // Basic node structure for ADTs
 struct Node {

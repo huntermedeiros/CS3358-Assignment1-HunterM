@@ -3,6 +3,7 @@
 #define QUEUE_H
 
 #include "utils.h"
+struct Node;
 
 // Implementation of a Queue using an array
 class queueArr {

@@ -3,6 +3,7 @@
 #define STACK_H
 
 #include "utils.h"
+struct Node;
 
 // Implementation of a Stack using an array
 class stackArr {
@@ -40,5 +41,7 @@ class stackPtr {
         bool isFull(); // Not needed because if stack is full then you have no memory
         int getSize(); // Returns size of the stack
 };
+
+void arrStackTest(int& iUserInput);
 
 #endif

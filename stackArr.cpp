@@ -63,3 +63,26 @@ bool stackArr::isFull() {
 int stackArr::getSize() {
     return iTop+1;
 }
+
+void arrStackTest(int& iUserInput) {
+    std::string szMenuStackArr[5] = {"Array Based Stack", "Push", "Pop", "Peek", "Current Size"};
+
+    stackArr newStack(5);
+
+    displayMenu(szMenuStackArr, 5);
+    menuInput(iUserInput);
+    
+    switch(iUserInput) {
+        case 1:
+            newStack.push(1);
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case -1:
+            break;
+    }
+}
