@@ -10,6 +10,7 @@ stackArr::stackArr() {
 
 stackArr::~stackArr() {
     delete iStackArr; // Delete stack array
+    iStackArr = nullptr;
     std::cout << "StackArr destructor called\n"; // Testing
 }
 

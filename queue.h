@@ -10,7 +10,7 @@ class queueArr {
         int iSize = 1; // Smallest default Size
         int iFront = 0;
         int iBack = 0;
-        int* iQueueArr = NULL;
+        int* iQueueArr = nullptr;
 
     public:
         queueArr(); // Default constructor

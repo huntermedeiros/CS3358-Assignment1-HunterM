@@ -2,14 +2,15 @@
 #include "queue.h"
 
         queueArr::queueArr() {
-
+            iQueueArr = new int[iSize];
         }
         queueArr::~queueArr() {
-            
+            delete iQueueArr;
+            iQueueArr = nullptr;
         }
 
         queueArr::queueArr(int iSize) {
-
+            iQueueArr = new int[iSize];
         }
 
         void queueArr::enqueue() {

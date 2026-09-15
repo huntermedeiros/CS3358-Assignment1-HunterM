@@ -9,7 +9,7 @@ class stackArr {
     private:
         int iSize = 1; // Smallest default Size
         int iTop = -1; // Default empty value
-        int* iStackArr = NULL;
+        int* iStackArr = nullptr;
 
     public:
         stackArr(); // Default constructor
