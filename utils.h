@@ -8,7 +8,7 @@
 // Basic node structure for ADTs
 struct Node {
     int iVal;
-    Node* pNext();
+    Node* pNext = nullptr;
 };
 
 #endif

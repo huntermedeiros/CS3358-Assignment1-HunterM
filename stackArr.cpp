@@ -1,5 +1,6 @@
-#include "utils.h"
 #include "stack.h"
+
+// All code for the array based Stack
 
 stackArr::stackArr() {
     iStackArr = new int[iSize]; // Dynamically allocate array for stack
@@ -37,6 +38,15 @@ void stackArr::pop() {
     else {
         std::cout << "Value popped: " << iStackArr[iTop] << std::endl; // Testing
         iTop--; // Decrement top by 1
+    }
+}
+
+void stackArr::peek() {
+    if (isEmpty()) {
+        std::cout << "Stack empty. No value to peek.\n";
+    }
+    else {
+        std::cout << "Top Value: " << iStackArr[iTop] << std::endl;
     }
 }
 

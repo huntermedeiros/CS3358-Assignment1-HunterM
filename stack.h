@@ -4,7 +4,7 @@
 
 #include "utils.h"
 
-// Variable ARR
+// Implementation of a Stack using an array
 class stackArr {
     private:
         int iSize = 1; // Smallest default Size
@@ -12,33 +12,34 @@ class stackArr {
         int* iStackArr = NULL;
 
     public:
-        stackArr(); // Default Constructor
+        stackArr(); // Default constructor
         ~stackArr(); // Destructor
 
         stackArr(int iSize); // Overloaded constructor providing size
 
         void push(int iNewValue); // Push element to top of stack
         void pop(); // Pop element at top of stack
-        int peek(); // Returns value of top
+        void peek(); // Returns value of top
         bool isFull(); // Returns bool based on if stack is full
         bool isEmpty(); // Returns bool based on if stack is empty
         int getSize(); // Returns size of the stack
 };
 
+// Implementation of a Stack using pointers
 class stackPtr {
     private:
-        Node* pStackHead;
+        Node* pStackHead = nullptr;
 
     public:
-        stackPtr();
-        ~stackPtr();
+        stackPtr(); // Default constructor
+        ~stackPtr(); // Destructor
 
         void push(int iNewValue); // Push element to top of stack
         void pop(); // Pop element at top of stack
         int peek(); // Returns value of top
-        bool isFull(); // Returns bool based on if stack is full
+        // bool isFull(); Not Needed because if stack is full then there are other prolems
         bool isEmpty(); // Returns bool based on if stack is empty
-        int getSize(); // Returns size of the stack
+        int getSize();
 
 };
 
