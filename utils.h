@@ -1,13 +1,14 @@
-// Declarations of helper functions for the driver
 #ifndef UTILS_H
 #define UTILS_H
 
+// Base inclusions
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-// Function declaration of display menu;
-void displayMenu(string szMenuArr, int iLength);
+// Basic node structure for ADTs
+struct Node {
+    int iVal;
+    Node* pNext();
+};
 
 #endif
