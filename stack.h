@@ -8,12 +8,12 @@ struct Node;
 // Implementation of a Stack using an array
 class stackArr {
     private:
-        int iSize;
+        int iCapacity;
         int iTop = -1; // Default empty value
         int* iStackArr = nullptr;
 
     public:
-        stackArr(int iSize); // Constructor providing size
+        stackArr(int iCapacity); // Constructor providing size
         ~stackArr(); // Destructor
 
         void push(int iNewValue); // Push element to top of stack
@@ -22,6 +22,7 @@ class stackArr {
         bool isEmpty(); // Returns bool based on if stack is empty
         bool isFull(); // Returns bool based on if stack is full
         int getSize(); // Returns size of the stack
+        int getCapacity(); // Returns capacity of stack
 };
 
 // Implementation of a Stack using pointers
@@ -43,5 +44,6 @@ class stackPtr {
 };
 
 void arrStackTest(int& iUserInput);
+void ptrStackTest(int& iUserInput);
 
 #endif

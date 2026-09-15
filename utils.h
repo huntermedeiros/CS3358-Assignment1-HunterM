@@ -13,14 +13,6 @@ struct Node {
 };
 
 void displayMenu(std::string szMenu[], int iLength);
-void menuInput(int& iUserInput);
-
-void arrStackTest(int& iUserInput);
-void ptrStackTest(int& iUserInput);
-void postfixExpression();
-
-void arrQueueTest(int& iUserInput);
-void ptrQueueTest(int& iUserInput);
-
+void intInput(int& iUserInput);
 
 #endif

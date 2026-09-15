@@ -13,7 +13,7 @@ void displayMenu(std::string szMenu[], int iLength) {
 }
 
 // Function for getting user input for menu
-void menuInput(int& iUserInput) {
+void intInput(int& iUserInput) {
     std::cout << ": ";
     while (!(std::cin >> iUserInput)) {
     std::cin.clear();

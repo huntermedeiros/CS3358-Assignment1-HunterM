@@ -2,9 +2,9 @@
 #include "stack.h"
 
 // All code for the array based Stack
-stackArr::stackArr(int iSize) {
-    this->iSize = iSize;
-    iStackArr = new int[iSize]; // Dynamically allocate array for stack
+stackArr::stackArr(int iCapacity) {
+    this->iCapacity = iCapacity;
+    iStackArr = new int[iCapacity]; // Dynamically allocate array for stack
     std::cout << "StackArr constructor called\n"; // Testing
 }
 
@@ -54,7 +54,7 @@ bool stackArr::isEmpty() {
 }
 
 bool stackArr::isFull() {
-    if (iTop == iSize - 1) // If the top index is 
+    if (iTop == iCapacity - 1) // If the top index is 
         return false;
     else
         return true;
@@ -64,25 +64,38 @@ int stackArr::getSize() {
     return iTop+1;
 }
 
+int stackArr::getCapacity() {
+    return iCapacity;
+}
+
+// Function to test the array based stack
 void arrStackTest(int& iUserInput) {
     std::string szMenuStackArr[5] = {"Array Based Stack", "Push", "Pop", "Peek", "Current Size"};
 
-    stackArr newStack(5);
-
-    displayMenu(szMenuStackArr, 5);
-    menuInput(iUserInput);
+    stackArr newStack(10); // Creation of new stack
+    int iPushValue;
+    while (true) {
+        displayMenu(szMenuStackArr, 5);
+        intInput(iUserInput);
     
-    switch(iUserInput) {
-        case 1:
-            newStack.push(1);
-            break;
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        case -1:
-            break;
+        switch(iUserInput) {
+            case 1:
+                intInput(iPushValue);
+                newStack.push(iPushValue);
+                break;
+            case 2:
+                newStack.pop();
+                break;
+            case 3:
+                newStack.peek();
+                break;
+            case 4:
+                std::cout << "Capacity: " << newStack.getCapacity() << std::endl;
+                break;
+            case -1:
+                std::cout << "Exiting array based stack testing.\n";
+                return;
+        }
     }
+    
 }
