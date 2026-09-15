@@ -48,16 +48,16 @@ void stackArr::peek() {
 
 bool stackArr::isEmpty() {
     if (iTop == -1) // Check if the top index is -1
-        return false;
-    else    
         return true;
+    else    
+        return false;
 }
 
 bool stackArr::isFull() {
-    if (iTop == iCapacity - 1) // If the top index is 
-        return false;
-    else
+    if (iTop == (iCapacity - 1)) // If the top index is equal to the capacity-1 
         return true;
+    else
+        return false;
 }
 
 int stackArr::getSize() {
