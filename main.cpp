@@ -23,6 +23,7 @@ int main() {
                         arrStackTest(iUserInput);
                         break;
                     case 2:
+                        ptrStackTest(iUserInput);
                         break;
                     case -1:
                         break;
@@ -31,6 +32,15 @@ int main() {
             case 2:
                 displayMenu(szMenuQueue, 3);
                 intInput(iUserInput);
+                switch (iUserInput) {
+                    case 1:
+                        arrQueueTest(iUserInput);
+                        break;
+                    case 2:
+                        break;
+                    case -1:
+                        break;
+                }
                 break;
             case 3:
 

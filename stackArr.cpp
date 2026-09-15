@@ -70,7 +70,7 @@ int stackArr::getCapacity() {
 
 // Function to test the array based stack
 void arrStackTest(int& iUserInput) {
-    std::string szMenuStackArr[5] = {"Array Based Stack", "Push", "Pop", "Peek", "Current Size"};
+    std::string szMenuStackArr[5] = {"Array Based Stack", "Push", "Pop", "Peek", "Current Capacity/Size"};
 
     stackArr newStack(10); // Creation of new stack
     int iPushValue;
@@ -91,11 +91,11 @@ void arrStackTest(int& iUserInput) {
                 break;
             case 4:
                 std::cout << "Capacity: " << newStack.getCapacity() << std::endl;
+                std::cout << "Size: " << newStack.getSize() << std::endl << std::endl;
                 break;
             case -1:
                 std::cout << "Exiting array based stack testing.\n";
                 return;
         }
     }
-    
 }

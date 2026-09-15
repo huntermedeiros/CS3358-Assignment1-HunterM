@@ -8,7 +8,7 @@ struct Node;
 // Implementation of a Queue using an array
 class queueArr {
     private:
-        int iSize;
+        int iSize = 0;
         int iCapacity;
         int iFront = 0;
         int iBack = 0;
@@ -24,6 +24,7 @@ class queueArr {
         bool isEmpty(); // Returns bool based on if queue is empty
         bool isFull(); // Returns bool based on if queue is full
         int getSize(); // Returns size of Queue
+        int getCapacity(); // Returns capacity
 };
 
 // Implementation of a Queue using pointers
@@ -44,5 +45,8 @@ class queuePtr {
         bool isFull(); // Returns bool based on if queue is full
         int getSize(); // Returns size of Queue
 };
+
+void arrQueueTest(int& iUserInput);
+void ptrQueueTest(int& iUserInput);
 
 #endif

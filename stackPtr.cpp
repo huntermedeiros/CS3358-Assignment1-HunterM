@@ -57,7 +57,36 @@ bool stackPtr::isFull() {
     return false; // Will always return false because size is limited by memory in this case
 }
 
-
 int stackPtr::getSize() {
     return iSize;
+}
+
+void ptrStackTest(int& iUserInput) {
+    std::string szMenuStackArr[5] = {"Pointer Based Stack", "Push", "Pop", "Peek", "Current Size"};
+
+    stackPtr newStack; // Creation of new stack
+    int iPushValue;
+    while (true) {
+        displayMenu(szMenuStackArr, 5);
+        intInput(iUserInput);
+    
+        switch(iUserInput) {
+            case 1:
+                intInput(iPushValue);
+                newStack.push(iPushValue);
+                break;
+            case 2:
+                newStack.pop();
+                break;
+            case 3:
+                newStack.peek();
+                break;
+            case 4:
+                std::cout << "Size: " << newStack.getSize() << std::endl << std::endl;
+                break;
+            case -1:
+                std::cout << "Exiting pointer based stack testing.\n";
+                return;
+        }
+    }
 }

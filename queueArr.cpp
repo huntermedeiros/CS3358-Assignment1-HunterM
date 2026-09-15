@@ -2,6 +2,7 @@
 #include "queue.h"
 
 queueArr::queueArr(int iCapacity) { // Create new queueArr given capacity
+    this->iCapacity = iCapacity;
     iQueueArr = new int[iCapacity];
 }
 queueArr::~queueArr() { // Delete queue array and set to null
@@ -52,4 +53,39 @@ bool queueArr::isFull() {
 
 int queueArr::getSize() { // Returns size
     return iSize;
+}
+
+int queueArr::getCapacity() {
+    return iCapacity;
+}
+
+void arrQueueTest(int& iUserInput) {
+    std::string szMenuQueueArr[5] = {"Array Based Queue", "Enqueue", "Dequeue", "Peek", "Current Capacity/Size"};
+
+    queueArr newQueue(10); // Creation of new stack
+    int iEnqueueValue;
+    while (true) {
+        displayMenu(szMenuQueueArr, 5);
+        intInput(iUserInput);
+    
+        switch(iUserInput) {
+            case 1:
+                intInput(iEnqueueValue);
+                newQueue.enqueue(iEnqueueValue);
+                break;
+            case 2:
+                newQueue.dequeue();
+                break;
+            case 3:
+                newQueue.peek();
+                break;
+            case 4:
+                std::cout << "Capacity: " << newQueue.getCapacity() << std::endl;
+                std::cout << "Size: " << newQueue.getSize() << std::endl << std::endl;
+                break;
+            case -1:
+                std::cout << "Exiting pointer based stack testing.\n";
+                return;
+        }
+    }
 }
