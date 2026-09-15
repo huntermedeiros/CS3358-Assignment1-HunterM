@@ -37,6 +37,7 @@ int main() {
                         arrQueueTest(iUserInput);
                         break;
                     case 2:
+                        ptrQueueTest(iUserInput);
                         break;
                     case -1:
                         break;

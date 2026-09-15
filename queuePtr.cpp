@@ -65,3 +65,33 @@ bool queuePtr::isFull() {
 int queuePtr::getSize() {
     return iSize;
 }
+
+void ptrQueueTest(int& iUserInput) {
+    std::string szMenuQueueArr[5] = {"Pointer Based Queue", "Enqueue", "Dequeue", "Peek", "Current Size"};
+
+    queuePtr newQueue; // Creation of new queue
+    int iEnqueueValue;
+    while (true) {
+        displayMenu(szMenuQueueArr, 5);
+        intInput(iUserInput);
+    
+        switch(iUserInput) {
+            case 1:
+                intInput(iEnqueueValue);
+                newQueue.enqueue(iEnqueueValue);
+                break;
+            case 2:
+                newQueue.dequeue();
+                break;
+            case 3:
+                newQueue.peek();
+                break;
+            case 4:
+                std::cout << "Size: " << newQueue.getSize() << std::endl << std::endl;
+                break;
+            case -1:
+                std::cout << "Exiting pointer based stack testing.\n";
+                return;
+        }
+    }
+}
