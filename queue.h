@@ -28,7 +28,8 @@ class queueArr {
 // Implementation of a Queue using pointers
 class queuePtr {
     private:
-        Node* pQueueHead = nullptr;
+        Node* pQueueHead = nullptr; // Front of the queue
+        Node* pQueueTail = nullptr; // Back of the queue
         int iSize = 0;
 
     public:

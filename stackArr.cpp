@@ -2,8 +2,8 @@
 #include "stack.h"
 
 // All code for the array based Stack
-
-stackArr::stackArr() {
+stackArr::stackArr(int iSize) {
+    this->iSize = iSize;
     iStackArr = new int[iSize]; // Dynamically allocate array for stack
     std::cout << "StackArr constructor called\n"; // Testing
 }
@@ -12,12 +12,6 @@ stackArr::~stackArr() {
     delete iStackArr; // Delete stack array
     iStackArr = nullptr;
     std::cout << "StackArr destructor called\n"; // Testing
-}
-
-stackArr::stackArr(int iSize) {
-    this->iSize = iSize;
-    iStackArr = new int[iSize]; // Dynamically allocate array for stack
-    std::cout << "StackArr constructor called\n"; // Testing
 }
 
 void stackArr::push(int iNewValue) {

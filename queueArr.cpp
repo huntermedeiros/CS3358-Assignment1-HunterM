@@ -20,10 +20,9 @@ void queueArr::enqueue(int iNewVal) {
     }
 }
 
-
 void queueArr::dequeue() {
     if (isEmpty()) { // If queue is empty, print error
-        std::cout << "Queue empty. Value not dequeued.\n";
+        std::cout << "Queue empty. No value to dequeued.\n";
     }
     else {
         iFront--; // Decrement iFront to effectivaly remove element from list
