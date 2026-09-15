@@ -3,10 +3,18 @@
 
 stackArr::stackArr() {
     iStackArr = new int[iSize]; // Dynamically allocate array for stack
+    std::cout << "StackArr constructor called\n"; // Testing
 }
 
 stackArr::~stackArr() {
     delete iStackArr; // Delete stack array
+    std::cout << "StackArr destructor called\n"; // Testing
+}
+
+stackArr::stackArr(int iSize) {
+    this->iSize = iSize;
+    iStackArr = new int[iSize]; // Dynamically allocate array for stack
+    std::cout << "StackArr constructor called\n"; // Testing
 }
 
 void stackArr::push(int iNewValue) {
@@ -17,6 +25,7 @@ void stackArr::push(int iNewValue) {
     else {
         iTop++; // Increment top index by 1
         iStackArr[iTop] = iNewValue; // Set value at top to new value
+        std::cout << "Value pushed: " << iNewValue << std::endl; // Testing
     }
 
 }
@@ -25,7 +34,8 @@ void stackArr::pop() {
     if (isEmpty()) { // If empty, output error message
         std::cout << "Stack empty. No value to pop.\n";
     }
-    else { 
+    else {
+        std::cout << "Value popped: " << iStackArr[iTop] << std::endl; // Testing
         iTop--; // Decrement top by 1
     }
 }
@@ -38,8 +48,12 @@ bool stackArr::isFull() {
 }
 
 bool stackArr::isEmpty() {
-    if (iTop == -1)
+    if (iTop == -1) // Check if the top index is -1
         return false;
     else    
         return true;
+}
+
+int stackArr::getSize() {
+    return iSize;
 }
