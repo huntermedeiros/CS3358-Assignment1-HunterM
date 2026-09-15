@@ -50,17 +50,17 @@ void stackArr::peek() {
     }
 }
 
-bool stackArr::isFull() {
-    if (iTop == iSize - 1) // If the top index is 
-        return false;
-    else
-        return true;
-}
-
 bool stackArr::isEmpty() {
     if (iTop == -1) // Check if the top index is -1
         return false;
     else    
+        return true;
+}
+
+bool stackArr::isFull() {
+    if (iTop == iSize - 1) // If the top index is 
+        return false;
+    else
         return true;
 }
 

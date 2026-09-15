@@ -46,16 +46,17 @@ void stackPtr::peek() {
     }
 }
 
-bool stackPtr::isFull() {
-    return false; // Will always return false because size is limited by memory in this case
-}
-
 bool stackPtr::isEmpty() {
     if (pStackHead == nullptr)
         return true;
     else
         return false;
 }
+
+bool stackPtr::isFull() {
+    return false; // Will always return false because size is limited by memory in this case
+}
+
 
 int stackPtr::getSize() {
     return iSize;
