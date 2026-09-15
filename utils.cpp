@@ -18,6 +18,6 @@ void intInput(int& iUserInput) {
     while (!(std::cin >> iUserInput)) {
     std::cin.clear();
     std::cin.ignore();
-    std::cout << "Please enter valid choice.\n" << ": ";
+    std::cout << "Please enter valid input.\n" << ": ";
     }
 }

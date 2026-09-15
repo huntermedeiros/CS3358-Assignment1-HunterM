@@ -15,35 +15,35 @@ int main() {
         intInput(iUserInput);
 
         switch(iUserInput) {
-            case 1:
+            case 1: // Stacks
                 displayMenu(szMenuStack, 3);
                 intInput(iUserInput);
                 switch (iUserInput) {
-                    case 1:
+                    case 1: // Array based stack
                         arrStackTest(iUserInput);
                         break;
-                    case 2:
+                    case 2: // Pointer based stack
                         ptrStackTest(iUserInput);
                         break;
                     case -1:
                         break;
                 }
                 break;
-            case 2:
+            case 2: // Queues
                 displayMenu(szMenuQueue, 3);
                 intInput(iUserInput);
                 switch (iUserInput) {
-                    case 1:
+                    case 1: // Array based queue
                         arrQueueTest(iUserInput);
                         break;
-                    case 2:
+                    case 2: // Pointer based queue
                         ptrQueueTest(iUserInput);
                         break;
                     case -1:
                         break;
                 }
                 break;
-            case 3:
+            case 3: // Postfix Expression Solver
 
                 break;
             case -1:
