@@ -65,5 +65,5 @@ bool stackArr::isEmpty() {
 }
 
 int stackArr::getSize() {
-    return iSize;
+    return iTop+1;
 }

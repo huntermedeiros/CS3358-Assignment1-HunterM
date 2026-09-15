@@ -19,7 +19,7 @@ class stackArr {
 
         void push(int iNewValue); // Push element to top of stack
         void pop(); // Pop element at top of stack
-        void peek(); // Returns value of top
+        void peek(); // Prints value of top
         bool isFull(); // Returns bool based on if stack is full
         bool isEmpty(); // Returns bool based on if stack is empty
         int getSize(); // Returns size of the stack
@@ -29,6 +29,7 @@ class stackArr {
 class stackPtr {
     private:
         Node* pStackHead = nullptr;
+        int iSize = 0;
 
     public:
         stackPtr(); // Default constructor
@@ -36,10 +37,10 @@ class stackPtr {
 
         void push(int iNewValue); // Push element to top of stack
         void pop(); // Pop element at top of stack
-        int peek(); // Returns value of top
-        // bool isFull(); Not Needed because if stack is full then there are other prolems
+        void peek(); // Prints value of top
+        bool isFull(); // Not needed because if stack is full then you have no memory
         bool isEmpty(); // Returns bool based on if stack is empty
-        int getSize();
+        int getSize(); // Returns size of the stack
 
 };
 
