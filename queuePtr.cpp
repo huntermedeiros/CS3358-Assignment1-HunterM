@@ -1,33 +1,34 @@
 #include "utils.h"
 #include "queue.h"
 
-        queuePtr::queuePtr() {
-
+queuePtr::queuePtr() {
+        pQueueHead = nullptr; // Initialize empty stack
+        iSize = 0;
         }
-        queuePtr::~queuePtr() {
+queuePtr::~queuePtr() {
 
-        }
+}
 
-        void queuePtr::enqueue(int iNewVal) {
+void queuePtr::enqueue(int iNewVal) {
 
-        }
+}
 
-        void queuePtr::dequeue() {
+void queuePtr::dequeue() {
 
-        }
+}
 
-        void queuePtr::peek() {
+void queuePtr::peek() {
 
-        }
+}
 
-        bool queuePtr::isEmpty() {
-            return false;
-        }
+bool queuePtr::isEmpty() {
+    return false;
+}
 
-        bool queuePtr::isFull() {
-            return false;
-        } 
+bool queuePtr::isFull() {
+    return false;
+} 
 
-        int queuePtr::getSize() {
-            return iSize;
-        }
+int queuePtr::getSize() {
+    return iSize;
+}
