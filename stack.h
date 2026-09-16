@@ -2,7 +2,6 @@
 #ifndef STACK_H
 #define STACK_H
 
-#include "utils.h"
 struct Node;
 
 // Implementation of a Stack using an array

@@ -1,4 +1,5 @@
 #include "utils.h"
+#include "stack.h"
 
 std::string szBreakMessage = "==============================\n";
 
@@ -37,7 +38,8 @@ void postfixExpressionSolver() {
     // else if the input is a number, push number onto stack
 
     do {
-        std::cout << ": "; // User input
+        // User input
+        std::cout << ": "; 
         std::cin >> cUserInput;
 
         if (cUserInput == '=')

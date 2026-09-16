@@ -2,7 +2,6 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-#include "utils.h"
 struct Node; // Predeclaration of Node because of problems
 
 // Implementation of a Queue using an array
