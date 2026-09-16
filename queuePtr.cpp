@@ -26,10 +26,12 @@ void queuePtr::enqueue(int iNewVal) {
     if (isEmpty()) { // If empty, initialize queue with new value
         pQueueHead = new Node(iNewVal, nullptr);
         pQueueTail = pQueueHead;
+        iSize++;
     }
     else {
         pQueueTail->pNext = new Node(iNewVal, nullptr); // Create new node on current tails next pointer
         pQueueTail = pQueueTail->pNext; // Update tail to the current tail's next pointer
+        iSize++;
     }
 }
 
@@ -43,6 +45,7 @@ bool queuePtr::dequeue(int& iVal) {
         pQueueHead = pQueueHead->pNext; // Update queue's head to its next value
         iVal = pToDel->iVal;
         delete pToDel; // Delete old head
+        iSize--;
         return true;
     }  
 }
