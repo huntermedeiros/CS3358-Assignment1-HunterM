@@ -25,34 +25,35 @@ void intInput(int& iUserInput) {
 void postfixExpressionSolver() {
     stackPtr expressionStack;
     char cUserInput;
-    bool bOperationFlag = false; // Flag to keep track of when operations should appear
+    bool bIsInvalid = false; // To keep track of invalid expressions
 
     std::cout << "\nPostfix Expression Evaluator\n" << szBreakMessage;
+    std::cout << "Enter operand \"0-9\" and operators \"+, -, *, /\" one by one.\n";
+    std::cout << "Enter \"=\" to indicate the end of the expression\n";
+    
+    // Input character
+    // if input is opperator, pop two previous and push the result onto stack
+        // If Unable to pop two previous flag as a invalid expression
+    // else if the input is a number, push number onto stack
+
     do {
-        // Enter Value
-        if (expressionStack.getSize() == 2)
-            bOperationFlag = true;
-        
-        if (bOperationFlag) { // If operation, ask for operation
-            std::cout << "Enter operator \"+, -, *, /\" ('n' to exit): ";
-            std::cin >> cUserInput;
-            if (cUserInput == 'n')  // Exit early if n
-                break;
+        std::cout << ": "; // User input
+        std::cin >> cUserInput;
 
-            // Check if value is correct, exit if not
-            if (!(cUserInput == '+' || cUserInput == '-' || cUserInput == '*' || cUserInput == '/'))
-            {
-                std::cout << "Error, invalid value as input\n";
-                break;
-            }
+        if (cUserInput == '=')
+            break;
 
+        // Check to see if input is an operator
+        if (cUserInput == '+' || cUserInput == '-' || cUserInput == '*' || cUserInput == '/') {
             int iX, iY;
-            if (!expressionStack.pop(iY) || !expressionStack.pop(iX)) {
-                std::cout << "Error. Invalid expression\n";
+            if (!(expressionStack.pop(iY) && expressionStack.pop(iX))) {
+                bIsInvalid = true;
+                std::cout << "Error. Unable to complete operation.\n";
                 break;
             }
-            
-            switch(cUserInput) { // Base on operation, push operation output to stack
+
+            // Calcuate operation result and push it to the stack
+            switch (cUserInput) { // 
                 case '+':
                     expressionStack.push(iX + iY);
                     break;
@@ -66,35 +67,23 @@ void postfixExpressionSolver() {
                     expressionStack.push(iX / iY);
                     break;
             }
-
-            bOperationFlag = false;
-            
         }
-        else { // Otherwise, ask for number
-            std::cout << "Enter nonnegative value \"0-9\" ('n' to exit): ";
-            std::cin >> cUserInput;
-
-            if (cUserInput == 'n') { // Exit early if n
-                break;
-            }
-
-            if (cUserInput < '0' || cUserInput > '9') { // Check if number is in the range of 0-9
-                std::cout << "Error, invalid value as input\n";
-                break;
-            }
-
-            expressionStack.push(static_cast<int>(cUserInput-'0'));
+        // Else check if input is an operand
+        else if (cUserInput >= '0' && cUserInput <= '9') {
+            expressionStack.push(static_cast<int>(cUserInput - '0')); // Pushes integer value onto stack
         }
-        
-        
-    } while (cUserInput != 'n');
+    } while (cUserInput != '=');
 
-    int iFinal;
-    if (expressionStack.pop(iFinal) && expressionStack.isEmpty())
-        std::cout << "Expression Value: " << iFinal << std::endl;
-    else
-        std::cout << "Incomplete Expression\n";
-
+    if (expressionStack.getSize() != 1) {
+        bIsInvalid = true;
+    }
+    if (bIsInvalid == true)
+        std::cout << "Expression invalid\n";
+    else {
+        int iResult;
+        expressionStack.pop(iResult);
+        std::cout << "Result: " << iResult << std::endl;
+    }
 
     std::cout << "Exiting postfix expression evaluator\n";
 }
