@@ -14,7 +14,7 @@ struct Node {
 
 void displayMenu(std::string szMenu[], int iLength);
 void intInput(int& iUserInput);
-void postfixExpressionSolver(std::string& szExpression);
+void postfixExpressionSolver();
 
 
 #endif

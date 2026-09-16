@@ -36,7 +36,7 @@ class stackPtr {
         ~stackPtr(); // Destructor
 
         void push(int iNewValue); // Push element to top of stack
-        bool stackPtr::pop(int& iReturn); // Pop element at top of stack
+        bool pop(int& iReturn); // Pop element at top of stack
         void peek(); // Prints value of top
         bool isEmpty(); // Returns bool based on if stack is empty
         bool isFull(); // Not needed because if stack is full then you have no memory

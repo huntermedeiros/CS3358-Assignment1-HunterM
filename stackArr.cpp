@@ -35,6 +35,7 @@ bool stackArr::pop(int& iReturn) {
     else {
         iReturn = iStackArr[iTop]; // Testing
         iTop--; // Decrement top by 1
+        return true;
     }
 }
 

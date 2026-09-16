@@ -22,9 +22,8 @@ void intInput(int& iUserInput) {
     }
 }
 
-void postfixExpressionSolver(std::string& szExpression) {
+void postfixExpressionSolver() {
     /*
-        For length of the expression string,
         Push character into stack and check if it is an operation
         Once an operation is pushed, pop it, and store it
         Then pop the two previous values which should be numbers and store them.
@@ -32,12 +31,34 @@ void postfixExpressionSolver(std::string& szExpression) {
         You can use a switch statement to determine operation then use the specific case to operate on the values.
         Once operated on, push the result of the operation into the stack.
     */
-
     stackPtr expressionStack;
-    bool bIsOperation;
+    char cUserInput;
+    bool bOperationFlag = false; // Flag to keep track of when operations should appear
 
-    for (int i = 0; i < szExpression.length(); i++) {
+    std::cout << "Postfix Expression Evaluator\n" << szBreakMessage << std::endl;
+    do {
+        // Enter Value
+        if (expressionStack.getSize() == 2)
+            bOperationFlag = true;
         
-    }
+        if (bOperationFlag) { // If operation, ask for operation
+            std::cout << "Enter operator \"+, -, *, /\" ('n' to exit): ";
+            std::cin >> cUserInput;
+            if (cUserInput == 'n') { // Exit early if n
+                std::cout << "Exiting postfix expression evaluator\n";
+                return;
+            }
+        }
+        else { // Otherwise, ask for number
+            std::cout << "Enter nonnegative value 0-9 ('n' to exit): ";
+            std::cin >> cUserInput;
 
+            if (cUserInput == 'n') { // Exit early if n
+                std::cout << "Exiting postfix expression evaluator\n";
+                return;
+            }
+        }
+        
+        
+    } while (cUserInput != 'n');
 }

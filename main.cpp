@@ -45,9 +45,7 @@ int main() {
                 }
                 break;
             case 3: // Postfix Expression Solver
-                std::cout << "Input postfix expression: ";
-                std::cin >> szExpression;
-                postfixExpressionSolver(szExpression);
+                postfixExpressionSolver();
                 break;
             case -1:
                 std::cout << "Exiting program.\n";
