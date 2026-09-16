@@ -25,16 +25,18 @@ void stackPtr::push(int iNewValue) {
     iSize++;
 }
 
-void stackPtr::pop() {
+bool stackPtr::pop(int& iReturn) {
     if (isEmpty()) { // If empty, return error message
         std::cout << "Stack empty. No value to pop.\n";
-        return;
+        return false;
     }
 
     Node* pTempNode = pStackHead; // Set a temp node to the current head
     pStackHead = pStackHead->pNext; // Set the head to the next node
+    iReturn = pStackHead->iVal; // Sets parameter to popped value
     delete pTempNode; // Delete the temp containing the previous head
     iSize--;
+    return true;
 }
 
 void stackPtr::peek() {
@@ -65,18 +67,20 @@ void ptrStackTest(int& iUserInput) {
     std::string szMenuStackArr[5] = {"Pointer Based Stack", "Push", "Pop", "Peek", "Current Size"};
 
     stackPtr newStack; // Creation of new stack
-    int iPushValue;
+    int iPushVal;
+    int iPopVal;
     while (true) {
         displayMenu(szMenuStackArr, 5);
         intInput(iUserInput);
     
         switch(iUserInput) {
             case 1:
-                intInput(iPushValue);
-                newStack.push(iPushValue);
+                intInput(iPushVal);
+                newStack.push(iPushVal);
                 break;
             case 2:
-                newStack.pop();
+                newStack.pop(iPopVal);
+                std::cout << "Popped: " << iPopVal << std::endl;
                 break;
             case 3:
                 newStack.peek();

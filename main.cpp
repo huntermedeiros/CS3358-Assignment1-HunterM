@@ -9,7 +9,8 @@ int main() {
     std::string szMenuStack[3] = {"Stacks", "Array", "Pointer"};
     std::string szMenuQueue[3] = {"Queues", "Array", "Pointer"};
     int iUserInput = 0;
-    
+    std::string szExpression;
+
     while (true) { // Main Driver loop
         displayMenu(szMenuMain, 4);
         intInput(iUserInput);
@@ -44,7 +45,9 @@ int main() {
                 }
                 break;
             case 3: // Postfix Expression Solver
-
+                std::cout << "Input postfix expression: ";
+                std::cin >> szExpression;
+                postfixExpressionSolver(szExpression);
                 break;
             case -1:
                 std::cout << "Exiting program.\n";

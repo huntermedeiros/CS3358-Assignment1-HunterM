@@ -27,12 +27,13 @@ void stackArr::push(int iNewValue) {
 
 }
 
-void stackArr::pop() {
+bool stackArr::pop(int& iReturn) {
     if (isEmpty()) { // If empty, output error message
         std::cout << "Stack empty. No value to pop.\n";
+        return false;
     }
     else {
-        std::cout << "Value popped: " << iStackArr[iTop] << std::endl; // Testing
+        iReturn = iStackArr[iTop]; // Testing
         iTop--; // Decrement top by 1
     }
 }
@@ -73,18 +74,20 @@ void arrStackTest(int& iUserInput) {
     std::string szMenuStackArr[5] = {"Array Based Stack", "Push", "Pop", "Peek", "Current Capacity/Size"};
 
     stackArr newStack(10); // Creation of new stack
-    int iPushValue;
+    int iPushVal;
+    int iPopVal;
     while (true) {
         displayMenu(szMenuStackArr, 5);
         intInput(iUserInput);
     
         switch(iUserInput) {
             case 1:
-                intInput(iPushValue);
-                newStack.push(iPushValue);
+                intInput(iPushVal);
+                newStack.push(iPushVal);
                 break;
             case 2:
-                newStack.pop();
+                newStack.pop(iPopVal);
+                std::cout << "Popped: " << iPopVal << std::endl;
                 break;
             case 3:
                 newStack.peek();
