@@ -87,8 +87,8 @@ void arrStackTest(int& iUserInput) {
                 newStack.push(iPushVal);
                 break;
             case 2:
-                newStack.pop(iPopVal);
-                std::cout << "Popped: " << iPopVal << std::endl;
+                if(newStack.pop(iPopVal))
+                    std::cout << "Popped: " << iPopVal << std::endl;
                 break;
             case 3:
                 newStack.peek();

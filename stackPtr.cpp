@@ -20,8 +20,10 @@ stackPtr::~stackPtr() {
 }
 
 void stackPtr::push(int iNewValue) {
-    Node* pNewNode = new Node(iNewValue, pStackHead); // Create new node and set its next to current head
+    Node* pNewNode = new Node(iNewValue); // Create new node and set its next to current head
+    pNewNode->pNext = pStackHead;
     pStackHead = pNewNode; // Set the head to new node
+    std::cout << "Value pushed: " << iNewValue << std::endl; // Testing
     iSize++;
 }
 
@@ -33,7 +35,7 @@ bool stackPtr::pop(int& iReturn) {
 
     Node* pTempNode = pStackHead; // Set a temp node to the current head
     pStackHead = pStackHead->pNext; // Set the head to the next node
-    iReturn = pStackHead->iVal; // Sets parameter to popped value
+    iReturn = pTempNode->iVal; // Sets parameter to popped value
     delete pTempNode; // Delete the temp containing the previous head
     iSize--;
     return true;
@@ -79,8 +81,8 @@ void ptrStackTest(int& iUserInput) {
                 newStack.push(iPushVal);
                 break;
             case 2:
-                newStack.pop(iPopVal);
-                std::cout << "Popped: " << iPopVal << std::endl;
+                if(newStack.pop(iPopVal))
+                    std::cout << "Popped: " << iPopVal << std::endl;
                 break;
             case 3:
                 newStack.peek();
