@@ -69,6 +69,7 @@ int queuePtr::getSize() {
     return iSize;
 }
 
+// Testing function
 void ptrQueueTest(int& iUserInput) {
     std::string szMenuQueueArr[5] = {"Pointer Based Queue", "Enqueue", "Dequeue", "Peek", "Current Size"};
 
@@ -80,6 +81,7 @@ void ptrQueueTest(int& iUserInput) {
     
         switch(iUserInput) {
             case 1:
+                std::cout << "Enter Value";
                 intInput(iEnqueueVal);
                 newQueue.enqueue(iEnqueueVal);
                 break;

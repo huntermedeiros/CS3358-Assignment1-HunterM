@@ -14,10 +14,10 @@ void queueArr::enqueue(int iNewVal) {
     if (isFull()) { // If queue is full, print error and return
         std::cout << "Queue full. Value not enqueued.\n";
     }
-    else {
-        iBack = (iFront + iSize) % iCapacity; // The back of the queue is the mod of the front + size by the capacity
+    else { // Enqueue item at back
         iQueueArr[iBack] = iNewVal; // Insert value at back of queue
         iSize++;
+        // Update back of queue
     }
 }
 
@@ -48,7 +48,7 @@ bool queueArr::isEmpty() {
 }
 
 bool queueArr::isFull() {
-    if ((iSize + 1) % iCapacity == 0) // If taking the mod of the current size+1 to the capacity is 0 then the array is full
+    if ((iSize + 1) % iCapacity == iFront) // If taking the mod of the current size+1 to the capacity is 0 then the array is full
         return true;
     else
         return false;            
@@ -62,6 +62,7 @@ int queueArr::getCapacity() {
     return iCapacity;
 }
 
+// Testing function
 void arrQueueTest(int& iUserInput) {
     std::string szMenuQueueArr[5] = {"Array Based Queue", "Enqueue", "Dequeue", "Peek", "Current Capacity/Size"};
 
@@ -73,6 +74,7 @@ void arrQueueTest(int& iUserInput) {
     
         switch(iUserInput) {
             case 1:
+                std::cout << "Enter Value";
                 intInput(iEnqueueVal);
                 newQueue.enqueue(iEnqueueVal);
                 break;

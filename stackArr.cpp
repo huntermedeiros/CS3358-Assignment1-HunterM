@@ -5,13 +5,11 @@
 stackArr::stackArr(int iCapacity) {
     this->iCapacity = iCapacity;
     iStackArr = new int[iCapacity]; // Dynamically allocate array for stack
-    std::cout << "StackArr constructor called\n"; // Testing
 }
 
 stackArr::~stackArr() {
     delete iStackArr; // Delete stack array
     iStackArr = nullptr;
-    std::cout << "StackArr destructor called\n"; // Testing
 }
 
 void stackArr::push(int iNewValue) {
@@ -22,7 +20,6 @@ void stackArr::push(int iNewValue) {
     else {
         iTop++; // Increment top index by 1
         iStackArr[iTop] = iNewValue; // Set value at top to new value
-        std::cout << "Value pushed: " << iNewValue << std::endl; // Testing
     }
 
 }
@@ -70,7 +67,7 @@ int stackArr::getCapacity() {
     return iCapacity;
 }
 
-// Function to test the array based stack
+// Testing function
 void arrStackTest(int& iUserInput) {
     std::string szMenuStackArr[5] = {"Array Based Stack", "Push", "Pop", "Peek", "Current Capacity/Size"};
 
@@ -83,6 +80,7 @@ void arrStackTest(int& iUserInput) {
     
         switch(iUserInput) {
             case 1:
+                std::cout << "Enter Value";
                 intInput(iPushVal);
                 newStack.push(iPushVal);
                 break;

@@ -23,7 +23,6 @@ void stackPtr::push(int iNewValue) {
     Node* pNewNode = new Node(iNewValue); // Create new node and set its next to current head
     pNewNode->pNext = pStackHead;
     pStackHead = pNewNode; // Set the head to new node
-    std::cout << "Value pushed: " << iNewValue << std::endl; // Testing
     iSize++;
 }
 
@@ -65,6 +64,7 @@ int stackPtr::getSize() {
     return iSize;
 }
 
+// Testing function
 void ptrStackTest(int& iUserInput) {
     std::string szMenuStackArr[5] = {"Pointer Based Stack", "Push", "Pop", "Peek", "Current Size"};
 
@@ -77,6 +77,7 @@ void ptrStackTest(int& iUserInput) {
     
         switch(iUserInput) {
             case 1:
+                std::cout << "Enter Value";
                 intInput(iPushVal);
                 newStack.push(iPushVal);
                 break;
