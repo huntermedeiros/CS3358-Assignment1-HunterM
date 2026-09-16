@@ -16,9 +16,9 @@ void displayMenu(std::string szMenu[], int iLength) {
 void intInput(int& iUserInput) {
     std::cout << ": ";
     while (!(std::cin >> iUserInput)) {
-    std::cin.clear();
-    std::cin.ignore();
-    std::cout << "Please enter valid input.\n" << ": ";
+        std::cin.clear();
+        std::cin.ignore();
+        std::cout << "Please enter valid input.\n" << ": ";
     }
 }
 
@@ -31,6 +31,7 @@ void postfixExpressionSolver() {
         You can use a switch statement to determine operation then use the specific case to operate on the values.
         Once operated on, push the result of the operation into the stack.
     */
+   
     stackPtr expressionStack;
     char cUserInput;
     bool bOperationFlag = false; // Flag to keep track of when operations should appear
