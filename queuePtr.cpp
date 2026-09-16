@@ -33,14 +33,17 @@ void queuePtr::enqueue(int iNewVal) {
     }
 }
 
-void queuePtr::dequeue() {
+bool queuePtr::dequeue(int& iVal) {
     if (isEmpty()) { // If empty, print error
         std::cout << "Queue empty. No value to dequeue\n";
+        return false;
     }
     else {
         Node* pToDel = pQueueHead; // Store current head
         pQueueHead = pQueueHead->pNext; // Update queue's head to its next value
+        iVal = pToDel->iVal;
         delete pToDel; // Delete old head
+        return true;
     }  
 }
 
@@ -70,27 +73,28 @@ void ptrQueueTest(int& iUserInput) {
     std::string szMenuQueueArr[5] = {"Pointer Based Queue", "Enqueue", "Dequeue", "Peek", "Current Size"};
 
     queuePtr newQueue; // Creation of new queue
-    int iEnqueueValue;
+    int iEnqueueVal, iDequeueVal;
     while (true) {
         displayMenu(szMenuQueueArr, 5);
         intInput(iUserInput);
     
         switch(iUserInput) {
             case 1:
-                intInput(iEnqueueValue);
-                newQueue.enqueue(iEnqueueValue);
+                intInput(iEnqueueVal);
+                newQueue.enqueue(iEnqueueVal);
                 break;
             case 2:
-                newQueue.dequeue();
+                if (newQueue.dequeue(iDequeueVal))
+                    std::cout << "Dequeued: " << iDequeueVal << std::endl;
                 break;
             case 3:
                 newQueue.peek();
                 break;
             case 4:
-                std::cout << "Size: " << newQueue.getSize() << std::endl << std::endl;
+                std::cout << "Size: " << newQueue.getSize() << std::endl;
                 break;
             case -1:
-                std::cout << "Exiting pointer based stack testing.\n";
+                std::cout << "Exiting pointer based queue testing.\n";
                 return;
         }
     }

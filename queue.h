@@ -19,7 +19,7 @@ class queueArr {
         ~queueArr(); // Destructor
 
         void enqueue(int iNewVal); // Enqueue element
-        void dequeue(); // Dequeue element
+        bool dequeue(int& iVal); // Dequeue element
         void peek(); // Print front value
         bool isEmpty(); // Returns bool based on if queue is empty
         bool isFull(); // Returns bool based on if queue is full
@@ -39,7 +39,7 @@ class queuePtr {
         ~queuePtr();
 
         void enqueue(int iNewVal); // Enqueue element
-        void dequeue(); // Dequeue element
+        bool dequeue(int& iVal); // Dequeue element
         void peek(); // Print front value
         bool isEmpty(); // Returns bool based on if queue is empty
         bool isFull(); // Returns bool based on if queue is full

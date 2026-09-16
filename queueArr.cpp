@@ -15,18 +15,21 @@ void queueArr::enqueue(int iNewVal) {
         std::cout << "Queue full. Value not enqueued.\n";
     }
     else {
-        iBack = (iFront + iSize) % iCapacity; // The back of the queueu is the mod of the front + size by the capacity
+        iBack = (iFront + iSize) % iCapacity; // The back of the queue is the mod of the front + size by the capacity
         iQueueArr[iBack] = iNewVal; // Insert value at back of queue
         iSize++;
     }
 }
 
-void queueArr::dequeue() {
+bool queueArr::dequeue(int& iVal) {
     if (isEmpty()) { // If queue is empty, print error
         std::cout << "Queue empty. No value to dequeued.\n";
+        return false;
     }
     else {
+        iVal = iQueueArr[iFront];
         iFront--; // Decrement iFront to effectivaly remove element from list
+        return true;
     }
 }
 
@@ -63,28 +66,29 @@ void arrQueueTest(int& iUserInput) {
     std::string szMenuQueueArr[5] = {"Array Based Queue", "Enqueue", "Dequeue", "Peek", "Current Capacity/Size"};
 
     queueArr newQueue(10); // Creation of new stack
-    int iEnqueueValue;
+    int iEnqueueVal, iDequeueVal;
     while (true) {
         displayMenu(szMenuQueueArr, 5);
         intInput(iUserInput);
     
         switch(iUserInput) {
             case 1:
-                intInput(iEnqueueValue);
-                newQueue.enqueue(iEnqueueValue);
+                intInput(iEnqueueVal);
+                newQueue.enqueue(iEnqueueVal);
                 break;
             case 2:
-                newQueue.dequeue();
+                if (newQueue.dequeue(iDequeueVal))
+                    std::cout << "Dequeued: " << iDequeueVal << std::endl;
                 break;
             case 3:
                 newQueue.peek();
                 break;
             case 4:
                 std::cout << "Capacity: " << newQueue.getCapacity() << std::endl;
-                std::cout << "Size: " << newQueue.getSize() << std::endl << std::endl;
+                std::cout << "Size: " << newQueue.getSize() << std::endl;
                 break;
             case -1:
-                std::cout << "Exiting pointer based stack testing.\n";
+                std::cout << "Exiting array based queue testing.\n";
                 return;
         }
     }
