@@ -89,7 +89,7 @@ void ptrStackTest(int& iUserInput) {
                 newStack.peek();
                 break;
             case 4:
-                std::cout << "Size: " << newStack.getSize() << std::endl << std::endl;
+                std::cout << "Size: " << newStack.getSize() << std::endl;
                 break;
             case -1:
                 std::cout << "Exiting pointer based stack testing.\n";

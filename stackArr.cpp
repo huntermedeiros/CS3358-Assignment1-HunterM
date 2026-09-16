@@ -93,7 +93,7 @@ void arrStackTest(int& iUserInput) {
                 break;
             case 4:
                 std::cout << "Capacity: " << newStack.getCapacity() << std::endl;
-                std::cout << "Size: " << newStack.getSize() << std::endl << std::endl;
+                std::cout << "Size: " << newStack.getSize() << std::endl;
                 break;
             case -1:
                 std::cout << "Exiting array based stack testing.\n";

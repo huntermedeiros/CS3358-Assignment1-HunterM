@@ -23,15 +23,6 @@ void intInput(int& iUserInput) {
 }
 
 void postfixExpressionSolver() {
-    /*
-        Push character into stack and check if it is an operation
-        Once an operation is pushed, pop it, and store it
-        Then pop the two previous values which should be numbers and store them.
-        The first number value popped will be the right side of the operation while the last value popped will be the left side.
-        You can use a switch statement to determine operation then use the specific case to operate on the values.
-        Once operated on, push the result of the operation into the stack.
-    */
-   
     stackPtr expressionStack;
     char cUserInput;
     bool bOperationFlag = false; // Flag to keep track of when operations should appear
