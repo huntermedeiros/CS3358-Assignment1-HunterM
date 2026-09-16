@@ -14,10 +14,13 @@ void queueArr::enqueue(int iNewVal) {
     if (isFull()) { // If queue is full, print error and return
         std::cout << "Queue full. Value not enqueued.\n";
     }
+    else if (isEmpty()) {
+        iFront = iBack = 0;
+        iQueueArr[iBack] = iNewVal;
+    }
     else { // Enqueue item at back
-        iQueueArr[iBack] = iNewVal; // Insert value at back of queue
-        iSize++;
-        // Update back of queue
+        iBack = (iBack + 1) % iCapacity; // Update back
+        iQueueArr[iBack] = iNewVal;
     }
 }
 
@@ -26,11 +29,13 @@ bool queueArr::dequeue(int& iVal) {
         std::cout << "Queue empty. No value to dequeued.\n";
         return false;
     }
-    else {
-        iVal = iQueueArr[iFront];
-        iFront--; // Decrement iFront to effectivaly remove element from list
-        return true;
-    }
+
+    iVal = iQueueArr[iFront]; // Update iVal with the current front value
+    if (iFront == iBack) // If empty set to empty sentinels
+        iFront = iBack = -1;
+    else // Else, update the front
+        iFront = (iFront + 1) % iCapacity;
+    return true;
 }
 
 void queueArr::peek() {
@@ -41,14 +46,15 @@ void queueArr::peek() {
 }
 
 bool queueArr::isEmpty() {
-    if (iFront == iBack) // If the front is equal to the back then it is empty
+    if (iFront == -1 || iBack == -1)
         return true;
     else
         return false;
 }
 
+// Array is full when the back reaches around to the front when attempting to add another value
 bool queueArr::isFull() {
-    if ((iSize + 1) % iCapacity == iFront) // If taking the mod of the current size+1 to the capacity is 0 then the array is full
+    if ((iBack + 1) % iCapacity == iFront)
         return true;
     else
         return false;            

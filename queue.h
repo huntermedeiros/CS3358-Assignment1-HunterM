@@ -10,8 +10,8 @@ class queueArr {
     private:
         int iSize = 0;
         int iCapacity;
-        int iFront = 0;
-        int iBack = 0;
+        int iFront = -1;
+        int iBack = -1;
         int* iQueueArr = nullptr;
 
     public:
